@@ -1,0 +1,1756 @@
+/* =====================================================
+   PERSONAL PORTFOLIO WEBSITE
+   Name: Deepanshi Sharma
+
+   Technologies Used:
+   - HTML5
+   - CSS3
+   - Flexbox
+   - CSS Grid
+   - Media Queries
+   - Transitions
+   - Animation
+   ===================================================== */
+
+
+/* =====================================================
+   1. BASIC RESET
+   Removes default browser margins and padding
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Smooth scrolling when navigation links are clicked */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Basic styling for the complete webpage */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f7f4;
+    color: #202020;
+    line-height: 1.6;
+}
+
+
+/* Removes default underline from links */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Removes default bullet points from lists */
+
+ul {
+    list-style: none;
+}
+
+
+/* Prevents sections from hiding behind sticky navbar */
+
+section {
+    scroll-margin-top: 80px;
+}
+
+
+/* Common spacing used by different sections */
+
+.section {
+    padding: 100px 8%;
+}
+
+
+/* Common heading design for all sections */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+
+/* Small uppercase text above section headings */
+
+.section-title p {
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+/* Main section heading */
+
+.section-title h2 {
+    font-size: 42px;
+    line-height: 1.2;
+}
+
+
+/* Underline effect on selected heading words */
+
+.section-title h2 span {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+
+/* =====================================================
+   2. NAVIGATION BAR
+   ===================================================== */
+
+header {
+    width: 100%;
+
+    /* Keeps navigation visible while scrolling */
+    position: sticky;
+    top: 0;
+
+    /* Places navbar above other elements */
+    z-index: 1000;
+
+    background: rgba(248, 247, 244, 0.96);
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* Flexbox is used for navbar layout */
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 18px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Website logo */
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* Circular D logo */
+
+.logo span {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    margin-right: 7px;
+
+    border: 2px solid #202020;
+    border-radius: 50%;
+}
+
+
+/* Navigation links arranged using Flexbox */
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+
+/* Individual navigation link */
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: bold;
+
+    position: relative;
+}
+
+
+/* Underline animation for navigation links */
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+
+    left: 0;
+    bottom: -7px;
+
+    background: #202020;
+
+    transition: width 0.3s ease;
+}
+
+
+/* Expands underline when mouse hovers */
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   3. HOME / HERO SECTION
+   ===================================================== */
+
+.hero {
+    min-height: calc(100vh - 75px);
+
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 70px 30px;
+
+    /* Flexbox creates two-column layout */
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+/* Left side of hero section */
+
+.hero-content {
+    flex: 1;
+}
+
+
+/* Small introductory heading */
+
+.small-heading {
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+/* Main name */
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 95px);
+
+    line-height: 0.95;
+
+    margin-bottom: 25px;
+
+    letter-spacing: -4px;
+}
+
+
+/* Italic styling for last name */
+
+.hero h1 span {
+    font-style: italic;
+    font-weight: normal;
+}
+
+
+/* Professional title */
+
+.hero h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+
+/* Introduction paragraph */
+
+.hero-text {
+    max-width: 600px;
+
+    color: #666;
+
+    font-size: 17px;
+}
+
+
+/* Container for hero buttons */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+/* Common button styling */
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 26px;
+
+    border: 2px solid #202020;
+
+    font-weight: bold;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    /* Creates smooth hover animation */
+    transition: all 0.3s ease;
+}
+
+
+/* Dark primary button */
+
+.primary-btn {
+    background: #202020;
+    color: white;
+}
+
+
+/* Primary button hover effect */
+
+.primary-btn:hover {
+    background: transparent;
+    color: #202020;
+
+    transform: translateY(-3px);
+}
+
+
+/* Transparent secondary button */
+
+.secondary-btn {
+    background: transparent;
+}
+
+
+/* Secondary button hover effect */
+
+.secondary-btn:hover {
+    background: #202020;
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* Social media links */
+
+.social-links {
+    display: flex;
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+
+/* Social link styling */
+
+.social-links a {
+    font-size: 14px;
+    font-weight: bold;
+
+    border-bottom: 1px solid #202020;
+}
+
+
+/* Social link hover effect */
+
+.social-links a:hover {
+    opacity: 0.55;
+}
+
+
+/* =====================================================
+   4. PROFILE IMAGE
+   ===================================================== */
+
+.hero-image {
+    width: 390px;
+    min-width: 300px;
+
+    position: relative;
+}
+
+
+/* Circular profile image container */
+
+.image-circle {
+    width: 360px;
+    height: 360px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 12px solid #e7e3dc;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Profile image */
+
+.image-circle img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    /* Smooth image zoom */
+    transition: transform 0.5s ease;
+}
+
+
+/* Image zoom when hovered */
+
+.image-circle:hover img {
+    transform: scale(1.07);
+}
+
+
+/* CGPA floating card */
+
+.floating-card {
+    position: absolute;
+
+    bottom: 15px;
+    left: 0;
+
+    background: #202020;
+    color: white;
+
+    padding: 18px 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
+    /* Applies the floating animation */
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+/* CGPA number */
+
+.floating-card strong {
+    font-size: 25px;
+}
+
+
+/* CGPA label */
+
+.floating-card span {
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   5. CSS ANIMATION
+   Makes the CGPA card move slightly up and down
+   ===================================================== */
+
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   6. ABOUT SECTION
+   ===================================================== */
+
+
+/* Two-column layout created using CSS Grid */
+
+.about-container {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+}
+
+
+/* About heading */
+
+.about-text h3 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+
+/* About paragraphs */
+
+.about-text p {
+    color: #666;
+    margin-bottom: 18px;
+}
+
+
+/* Cards placed vertically */
+
+.about-cards {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+}
+
+
+/* Individual information card */
+
+.info-card {
+    padding: 25px;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Information card hover effect */
+
+.info-card:hover {
+    transform: translateX(8px);
+
+    box-shadow: 10px 10px 0 #202020;
+}
+
+
+/* Card number */
+
+.icon {
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+
+/* Card heading */
+
+.info-card h3 {
+    margin-bottom: 8px;
+}
+
+
+/* Card paragraph */
+
+.info-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   7. EDUCATION SECTION
+   ===================================================== */
+
+
+/* Dark background for education */
+
+.education-section {
+    background: #202020;
+    color: white;
+}
+
+
+/* Section subtitle on dark background */
+
+.education-section .section-title p {
+    color: #ccc;
+}
+
+
+/* Allows table to scroll horizontally on small screens */
+
+.table-container {
+    max-width: 1100px;
+    margin: auto;
+
+    overflow-x: auto;
+}
+
+
+/* Education table */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 700px;
+}
+
+
+/* Table cells */
+
+th,
+td {
+    padding: 20px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #555;
+}
+
+
+/* Table headings */
+
+th {
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* Table data */
+
+td {
+    color: #ccc;
+}
+
+
+/* Bold text inside table */
+
+td strong {
+    color: white;
+}
+
+
+/* CGPA badge */
+
+.result {
+    display: inline-block;
+
+    padding: 3px 9px;
+
+    border: 1px solid white;
+
+    font-size: 12px;
+
+    color: white;
+}
+
+
+/* =====================================================
+   8. SKILLS SECTION
+   ===================================================== */
+
+
+/* CSS Grid creates three columns */
+
+.skills-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* Individual skill card */
+
+.skill-card {
+    background: white;
+
+    border: 1px solid #ddd;
+
+    padding: 30px;
+
+    min-height: 230px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Skill card hover effect */
+
+.skill-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 8px 8px 0 #202020;
+}
+
+
+/* Skill card number */
+
+.skill-number {
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-bottom: 25px;
+}
+
+
+/* Skill category heading */
+
+.skill-card h3 {
+    font-size: 21px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Skill tags use Flexbox */
+
+.skill-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+/* Individual skill tag */
+
+.skill-tags span {
+    font-size: 12px;
+
+    padding: 6px 10px;
+
+    border: 1px solid #bbb;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Skill tag hover effect */
+
+.skill-tags span:hover {
+    background: #202020;
+
+    color: white;
+
+    border-color: #202020;
+}
+
+
+/* =====================================================
+   9. EXPERIENCE SECTION
+   ===================================================== */
+
+.experience-section {
+    background: #ebe8e2;
+}
+
+
+/* Timeline container */
+
+.timeline {
+    max-width: 900px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+
+/* Vertical line of timeline */
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: #202020;
+}
+
+
+/* Individual timeline item */
+
+.timeline-item {
+    position: relative;
+
+    padding-left: 55px;
+
+    margin-bottom: 45px;
+}
+
+
+/* Circle on timeline */
+
+.timeline-dot {
+    position: absolute;
+
+    left: 5px;
+    top: 5px;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: #202020;
+
+    border: 4px solid #ebe8e2;
+}
+
+
+/* Experience information box */
+
+.timeline-content {
+    background: white;
+
+    padding: 25px;
+
+    border: 1px solid #ddd;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Experience hover effect */
+
+.timeline-content:hover {
+    transform: translateX(8px);
+}
+
+
+/* Date styling */
+
+.date {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* Job title */
+
+.timeline-content h3 {
+    margin-top: 8px;
+
+    font-size: 22px;
+}
+
+
+/* Organisation name */
+
+.timeline-content h4 {
+    margin-bottom: 10px;
+}
+
+
+/* Experience description */
+
+.timeline-content p {
+    color: #666;
+}
+
+
+/* =====================================================
+   10. PROJECTS SECTION
+   ===================================================== */
+
+
+/* Three-column project layout */
+
+.projects-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Project card */
+
+.project-card {
+    background: white;
+
+    border: 1px solid #ddd;
+
+    padding: 30px;
+
+    min-height: 390px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Project hover animation */
+
+.project-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 10px 10px 0 #202020;
+}
+
+
+/* Top part of project card */
+
+.project-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+}
+
+
+/* Project number */
+
+.project-number {
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* Project category */
+
+.project-type {
+    font-size: 11px;
+
+    border: 1px solid #aaa;
+
+    padding: 4px 8px;
+}
+
+
+/* Project title */
+
+.project-card h3 {
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Project description */
+
+.project-card > p {
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* Achievement box */
+
+.achievement {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #202020;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* Achievement title */
+
+.achievement strong {
+    font-size: 18px;
+}
+
+
+/* Achievement description */
+
+.achievement span {
+    font-size: 12px;
+
+    color: #ccc;
+}
+
+
+/* Additional project information */
+
+.project-highlight {
+    margin-top: 18px;
+}
+
+
+/* Technology tags at bottom */
+
+.project-tech {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: auto;
+
+    padding-top: 25px;
+}
+
+
+/* Individual technology tag */
+
+.project-tech span {
+    font-size: 11px;
+
+    padding: 6px 9px;
+
+    border: 1px solid #aaa;
+}
+
+
+/* =====================================================
+   11. CERTIFICATIONS SECTION
+   ===================================================== */
+
+.certifications-section {
+    background: #202020;
+
+    color: white;
+}
+
+
+/* Subtitle on dark background */
+
+.certifications-section .section-title p {
+    color: #bbb;
+}
+
+
+/* Four-column certification layout */
+
+.certifications-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+/* Certification card */
+
+.cert-card {
+    min-height: 180px;
+
+    padding: 25px;
+
+    border: 1px solid #555;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Certification hover effect */
+
+.cert-card:hover {
+    background: white;
+
+    color: #202020;
+
+    transform: translateY(-6px);
+}
+
+
+/* Certification number */
+
+.cert-card span {
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+/* Certification name */
+
+.cert-card h3 {
+    margin: 20px 0 10px;
+
+    font-size: 18px;
+}
+
+
+/* Certification description */
+
+.cert-card p {
+    color: #aaa;
+
+    font-size: 12px;
+}
+
+
+/* Change paragraph colour when card is hovered */
+
+.cert-card:hover p {
+    color: #555;
+}
+
+
+/* =====================================================
+   12. CONTACT SECTION
+   ===================================================== */
+
+
+/* Two-column contact layout */
+
+.contact-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+}
+
+
+/* Contact heading */
+
+.contact-info h3 {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Contact introduction */
+
+.contact-info > p {
+    color: #666;
+
+    margin-bottom: 35px;
+}
+
+
+/* Individual contact item */
+
+.contact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Contact icon box */
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid #202020;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+
+/* Contact label */
+
+.contact-item span {
+    display: block;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 2px;
+}
+
+
+/* Contact links and text */
+
+.contact-item a,
+.contact-item p {
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+/* Contact link hover */
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* GitHub and LinkedIn buttons */
+
+.contact-socials {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+/* Social button */
+
+.contact-socials a {
+    border: 1px solid #202020;
+
+    padding: 10px 18px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Social button hover */
+
+.contact-socials a:hover {
+    background: #202020;
+
+    color: white;
+}
+
+
+/* =====================================================
+   13. CONTACT FORM
+   ===================================================== */
+
+
+/* Contact form box */
+
+.contact-form {
+    background: white;
+
+    padding: 35px;
+
+    border: 1px solid #ddd;
+
+    box-shadow: 12px 12px 0 #202020;
+}
+
+
+/* Space between form fields */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* Form labels */
+
+.form-group label {
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+/* Input and textarea styling */
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #bbb;
+
+    background: #f8f7f4;
+
+    font-family: inherit;
+
+    outline: none;
+
+    transition: border 0.3s ease;
+}
+
+
+/* Focus effect when user clicks an input */
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border: 2px solid #202020;
+}
+
+
+/* Allows user to resize only vertically */
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+/* =====================================================
+   14. FOOTER
+   ===================================================== */
+
+footer {
+    background: #202020;
+
+    color: white;
+
+    padding: 45px 8% 20px;
+}
+
+
+/* Footer uses Flexbox */
+
+.footer-content {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* Footer name */
+
+.footer-content h3 {
+    margin-bottom: 8px;
+}
+
+
+/* Footer description */
+
+.footer-content p {
+    color: #aaa;
+
+    font-size: 13px;
+}
+
+
+/* Footer navigation */
+
+.footer-links {
+    display: flex;
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+
+/* Footer links */
+
+.footer-links a {
+    font-size: 13px;
+
+    color: #ccc;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Footer link hover */
+
+.footer-links a:hover {
+    color: white;
+}
+
+
+/* Copyright section */
+
+.copyright {
+    max-width: 1100px;
+
+    margin: 35px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #444;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   15. RESPONSIVE DESIGN - TABLET
+   ===================================================== */
+
+
+/*
+   These styles are applied when the screen
+   width is 900px or smaller.
+*/
+
+@media (max-width: 900px) {
+
+
+    /* Reduce navigation spacing */
+
+    .nav-links {
+        gap: 15px;
+    }
+
+
+    /* Stack hero content vertically */
+
+    .hero {
+        flex-direction: column-reverse;
+
+        text-align: center;
+
+        padding-top: 60px;
+    }
+
+
+    /* Center hero paragraph */
+
+    .hero-text {
+        margin: auto;
+    }
+
+
+    /* Center buttons and social links */
+
+    .hero-buttons,
+    .social-links {
+        justify-content: center;
+    }
+
+
+    /* Change About section to one column */
+
+    .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+
+    /* Skills become two columns */
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* Projects become two columns */
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* Certifications become two columns */
+
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* Contact section becomes one column */
+
+    .contact-container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+}
+
+
+/* =====================================================
+   16. RESPONSIVE DESIGN - MOBILE
+   ===================================================== */
+
+
+/*
+   These styles are applied on mobile devices
+   with screen width of 650px or smaller.
+*/
+
+@media (max-width: 650px) {
+
+
+    /* Stack logo and navigation vertically */
+
+    .navbar {
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    /* Allow navigation links to wrap */
+
+    .nav-links {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 14px;
+
+        flex-wrap: wrap;
+    }
+
+
+    /* Smaller navigation text */
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+
+    /* Reduce hero spacing */
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+
+    /* Resize profile image container */
+
+    .hero-image {
+        width: 280px;
+    }
+
+
+    /* Resize profile picture */
+
+    .image-circle {
+        width: 270px;
+        height: 270px;
+
+        border-width: 8px;
+    }
+
+
+    /* Move floating card */
+
+    .floating-card {
+        bottom: 0;
+
+        left: 0;
+
+        padding: 12px 18px;
+    }
+
+
+    /* Reduce heading size */
+
+    .hero h1 {
+        font-size: 58px;
+
+        letter-spacing: -2px;
+    }
+
+
+    /* Smaller professional title */
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+
+    /* Smaller introduction text */
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+
+    /* Stack hero buttons */
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    /* Set button width */
+
+    .btn {
+        width: 200px;
+
+        text-align: center;
+    }
+
+
+    /* Reduce section padding */
+
+    .section {
+        padding: 70px 20px;
+    }
+
+
+    /* Smaller section headings */
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+
+    /* Skills become one column */
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Projects become one column */
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Certifications become one column */
+
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Smaller contact form */
+
+    .contact-form {
+        padding: 25px;
+
+        box-shadow: 7px 7px 0 #202020;
+    }
+
+
+    /* Stack footer content */
+
+    .footer-content {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    /* Center footer links */
+
+    .footer-links {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* =====================================================
+   17. EXTRA SMALL MOBILE DEVICES
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+
+    /* Further reduce hero heading */
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+
+    /* Reduce navigation gap */
+
+    .nav-links {
+        gap: 9px;
+    }
+
+
+    /* Smaller navigation text */
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+
+    /* Smaller profile image */
+
+    .image-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+
+    .hero-image {
+        width: 250px;
+    }
+
+}
